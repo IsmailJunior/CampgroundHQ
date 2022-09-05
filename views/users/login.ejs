@@ -1,0 +1,30 @@
+<% layout('layouts/template') %>
+<h1 class="text-center">Login</h1>
+<form class="needs-validation row w-50  shadow-sm offset-3 my-3 border  p-3 rounded-3 g-3" action="/login" method="POST" novalidate>
+						<%- include('../partials/flash')%>
+		<div class="col-md-6">
+			<label for="username" class="form-label">username:</label>
+		<input class="form-control" placeholder="Username" autocomplete="off" required type="text" id="username" name="username">
+		    <div class="valid-feedback">
+      		Looks good!
+    		</div>
+		    <div class="invalid-feedback">
+      		Please enter username!
+    		</div>
+		</div>
+		<div class="col-md-6">
+			<label for="password" class="form-label">Password:</label>
+		<input class="form-control" placeholder="Password" required type="password" id="password" name="password">
+			 <div class="valid-feedback">
+      		Looks good!
+    		</div>
+		    <div class="invalid-feedback">
+      		Please enter password!
+    		</div>
+		</div>	
+		<div class="col-md-12 d-grid">
+		<button type="submit" class="btn  btn-outline-success my-3">Login</button>
+		<h6 class="d-inline">Don't have an account? <a href="/sign-up">Sign up</a></h6>
+		</div>
+		
+	</form>

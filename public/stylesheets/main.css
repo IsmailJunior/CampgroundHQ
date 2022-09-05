@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Kufi+Arabic:wght@500;600&display=swap');
+
+a {
+	text-decoration: none;
+	color: black;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: sans-serif,'Noto Kufi Arabic';
+}
+
+textarea {
+	resize: none;
+}

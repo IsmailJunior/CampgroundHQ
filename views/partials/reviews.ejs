@@ -1,0 +1,36 @@
+	<div class="col overflow-scroll border rounded p-4" style="height: 40.4rem;">
+		<% for(let review of campground.reviews) {%>
+			<div class="card border mb-3 shadow">
+				<div class="card-header">
+				By <b><%= review.author.username%></b> <%if( currentUser && review.author.equals(currentUser._id)) {%>
+					<sup><b>.</b></sup> <i class="fa fa-user"></i>
+					<%}%>
+				</div>
+				<div class="card-body">
+ 			 <p class="starability-result" data-rating="<%=review.rating%>">Rated: <%=review.rating%> stars</p>
+			<p class="my-2"><span class="text-muted">Review: </span> <%=review.body%></p>
+			
+			<%  if( currentUser && review.author.equals(currentUser._id))  {%>
+				<hr>
+			<form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+				<button class="btn btn-outline-danger" type="submit">Delete Review</button>
+			</form>
+			<%}%>
+				</div> 
+				  <div class="card-footer text-muted">
+   				 2 days ago
+  					</div>
+			</div>
+			<%}%>
+			<%const reviewsRating = campground.reviews.map(review => review.rating)%>
+			<% if(reviewsRating.length === 0) {%>
+			<div class="card">
+				<div class="card-header">
+					CampgroundHQ
+				</div>
+				<div class="card-body">
+			<h3 class="text-center"> No reviews</h3>
+				</div>
+			</div>
+			<%}%>
+	</div>

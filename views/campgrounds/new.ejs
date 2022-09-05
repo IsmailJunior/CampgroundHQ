@@ -1,0 +1,65 @@
+<% layout('layouts/template') %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/campgrounds">Campgrounds</a></li>
+    <li class="breadcrumb-item active" aria-current="page">New Campground</li>
+  </ol>
+</nav>
+<h1 class="text-center">New Campground</h1>
+	<form enctype="multipart/form-data" class="needs-validation row w-50  shadow-sm offset-3 my-3 border  p-3 rounded-3 g-3" action="/campgrounds" method="POST" novalidate>
+		<div class="col-md-6">
+		<input class="form-control" placeholder="Title" autocomplete="off" required type="text" id="title" name="campground[title]">
+		    <div class="valid-feedback">
+      		Looks good!
+    		</div>
+		    <div class="invalid-feedback">
+      		Please enter title!
+    		</div>
+		</div>
+		<div class="col-md-6">
+		<input class="form-control" placeholder="Location" autocomplete="off" required type="text" id="location" name="campground[location]">
+			 <div class="valid-feedback">
+      		Looks good!
+    		</div>
+		    <div class="invalid-feedback">
+      		Please enter location!
+    		</div>
+		</div>
+
+		<div class="col">
+  			<textarea required name="campground[description]" autocomplete="off" maxlength="55" class="form-control" id="exampleFormControlTextarea1" placeholder="Description" rows="3"></textarea>
+			<div class="valid-feedback">
+      		Looks good!
+    		</div>
+		    <div class="invalid-feedback">
+      		Please enter description!
+    		</div>
+		</div>
+		<div class="input-group col-auto">
+		  	<input class="form-control" autocomplete="off" required type="file" id="image" multiple name="image" onchange="previewMultiple(event)">
+			<span class="input-group-text" id="basic-addon1">$</span>
+			<input class="form-control" required placeholder="* 0.00" autocomplete="off" pattern="^[1-9]\d*(\.\d+)?$" type="text" id="price" name="campground[price]">
+			<div class="valid-feedback">
+      		Looks good!
+    		</div>
+		    <div class="invalid-feedback">
+      		Please fill this out! -
+			* Only numbers allowed!
+    		</div>
+		</div>
+			<div class="col-md-12">
+		<select class="form-select" name="campground[time]" autocomplete="off" aria-label="Default select example" required>
+		<option selected>Night</option>
+		<option>Week</option>
+  		<option>Month</option>
+  		<option>Year</option>
+		</select>
+		</div>
+		<h6>Added images</h6>
+		<hr>
+		<div id="formFile"></div>
+		<div class="col-md-6">
+		<button class="btn btn-outline-success">Add Campground</button>
+		</div>
+		
+	</form>

@@ -1,0 +1,29 @@
+<% layout('layouts/template') %>
+	<h1>Campgrounds</h1>
+		<%- include('../partials/flash')%>
+		<div class="camps d-flex flex-wrap">
+		<% for(campground of campgrounds) {%>
+			<div class="card  m-3" style="width: 18rem;">
+				<%for (let img = 0; img < 1; img++) {%>
+  		<img src="<%=campground.images[img].url%>" class="card-img-top position-relative" style="height: 180px;" alt="Camp">
+		<%}%>
+  		<div class="card-body">
+  		<a href="/campgrounds/<%=campground._id%>" class="stretched-link"><h5 class="card-title d-inline"><%=campground.title%></h5></a>
+   		 <p class="card-text text-muted mt-2"><%=campground.location%></p>
+			<%const reviewsRating = campground.reviews.map(review => review.rating)%>
+			<% const init = 0;%>
+			<% const total = reviewsRating.reduce((pre, curent) => pre + curent, init)%>
+			<%if(total !== 0) {%>
+			<%const average = (total / reviewsRating.length) %>
+			<h6 class="d-inline">&#9733; <%=average.toFixed(1)%></h6> <sup><span class="text-muted">(<%=reviewsRating.length%>)</span> </sup><sup><b>.</b></sup> <h6 class="d-inline">$<%=campground.price%></h6> <%if( currentUser && campground.author.equals(currentUser._id)) {%>
+							<sup><b>.</b></sup> <i class="fa fa-user"></i>
+					<%}%>
+				<%} else {%>
+				<h6 class="d-inline">&#9733; New</h6> <sup><b>.</b></sup> <h6 class="d-inline">$<%=campground.price%></h6> <%if( currentUser && campground.author.equals(currentUser._id)) {%>
+							<sup><b>.</b></sup> <i class="fa fa-user"></i>
+					<%}%>
+					<%}%>
+ 		 </div>
+		</div>
+			<% } %>
+		</div>
