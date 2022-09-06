@@ -13,14 +13,19 @@ router.route( "/" )
 	.get(campgroundsController.index )
 	.post( isLoggedIn, upload.array('image'),campgroundsController.createNewCampground );
 
-router.get( "/new", isLoggedIn, campgroundsController.renderNewForm );
-
-router.route("/:id")
+router.get("/new", isLoggedIn, campgroundsController.renderNewForm);
+router.get("/map", campgroundsController.map);
+router
+  .route("/:id")
   .get(campgroundsController.showCampground)
-  .put(isLoggedIn, isAuthor, upload.array('image'),campgroundsController.updateCampground)
+  .put(
+    isLoggedIn,
+    isAuthor,
+    upload.array("image"),
+    campgroundsController.updateCampground
+  )
+
   .delete(isLoggedIn, isAuthor, campgroundsController.deleteCampground);
-
-
 //Show New Campground Page Route
 
 //Show Update Page Route
