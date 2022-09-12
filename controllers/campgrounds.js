@@ -28,7 +28,9 @@ module.exports.createNewCampground = async (req, res) => {
       limit: 1,
     })
     .send();
+  
   const campground = new Campground(req.body.campground);
+  campground.date = Date();
   campground.geometry = geoData.body.features[0].geometry;
   campground.images = req.files.map((file) => ({
     url: file.path,
