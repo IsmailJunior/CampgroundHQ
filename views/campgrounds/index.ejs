@@ -3,7 +3,7 @@
 		<%- include('../partials/flash')%>
 		<div class="camps d-flex flex-wrap">
 		<% for(campground of campgrounds) {%>
-			<div class="card shadow border border-4 border-light  m-3" style="width: 18rem;">
+			<div class="card index-card shadow border border-4 border-light  m-3" style="width: 18rem;">
 				<%for (let img = 0; img < 1; img++) {%>
   		<img src="<%=campground.images[img].url%>" class="card-img-top position-relative" style="height: 180px;" alt="Camp">
 		<%}%>

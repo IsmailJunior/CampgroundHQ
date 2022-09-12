@@ -33,3 +33,11 @@ textarea {
 .mark-map {
 	border-radius: 20px;
 }
+
+.index-card {
+	transition: all 300ms ease;
+}
+
+.index-card:hover {
+	background-color: whitesmoke;
+}

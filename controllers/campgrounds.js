@@ -94,9 +94,6 @@ module.exports.showCampground = async (req, res) => {
   }
   res.render("campgrounds/show", { campground });
 };
-
-
-
 module.exports.deleteCampground = async (req, res) => {
   const { id } = req.params;
   await Campground.findByIdAndDelete(id);
