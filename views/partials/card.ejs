@@ -1,7 +1,7 @@
 	<div class="row mx-auto w-75">
 					<%- include('../partials/flash')%>
 		<div class="col-auto mb-2 mx-auto">
-		<div class="card shadow" style="max-width: 30rem;">
+		<div class="card shadow border border-light border-4" style="max-width: 30rem;">
 		<div id="campgroundControl" class="carousel slide" data-bs-touch="true" data-bs-ride="carousel">
   <div class="carousel-inner">
 	<% campground.images.forEach((img, i) => { %>
@@ -59,14 +59,14 @@
   </ul>
 </div>
   <div class="card-footer text-muted">
-    2 days ago
+    <%=moment(campground.date).fromNow()%>
   </div>
 	</div>
 	</div>
 	<%- include('./reviews')%>
 	</div>
 
-			<div class="card my-4 w-75 mx-auto mark-map overflow-hidden">
+			<div class="card shadow border border-4 border-light my-4 w-75 mx-auto mark-map overflow-hidden">
 				<div id='map' style="width: 480; height: 320px;"></div>
 			</div>
 

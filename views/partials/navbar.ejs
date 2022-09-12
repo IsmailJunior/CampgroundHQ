@@ -1,6 +1,6 @@
-	<nav class="navbar navbar-light sticky-top navbar-expand-lg border-bottom" style="background: white;">
+	<nav class="navbar navbar-light shadow-sm sticky-top navbar-expand-lg border-bottom" style="background: white;">
   <div class="container">
-    <a class="navbar-brand text-danger" href="/campgrounds">CampgroundHQ</a>
+    <a class="navbar-brand text-danger" href="/campgrounds"><span>CampgroundHQ</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,7 +17,7 @@
           <a class="nav-link" aria-current="page" href="/sign-up"><b>Sign up</b></a>
           <%} else {%>
          <a class="nav-link" href="#" aria-current="page">
-          <img class="rounded-circle mx-3" src="https://avatars.dicebear.com/api/initials/<%=currentUser.username%>.svg" style="width: 50px;" alt="<%=currentUser.username%>">
+          <img class="rounded-circle border border-4 border-light shadow mx-3" src="https://avatars.dicebear.com/api/initials/<%=currentUser.username%>.svg" style="width: 50px;" alt="<%=currentUser.username%>">
           </a>
           <a class="nav-link" aria-current="page" href="/logout">Logout</a>
           <% }%>
